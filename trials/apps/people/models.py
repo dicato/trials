@@ -1,5 +1,7 @@
 from django.db import models
 
+from trials.apps.schools.models import School
+
 
 class Person(models.Model):
     """
@@ -12,16 +14,22 @@ class Person(models.Model):
         return u'%s %s' % (self.first_name, self.last_name)
 
 
+class Teacher(Person):
+    """
+    Teacher
+    """
+    # Fields: school, ...
+    email = models.EmailField()
+    phone = models.CharField(max_length=7)
+
+    # SHould their be a many to one field for students?
+
+
 class Student(Person):
     """
     Student
     """
     # Fields: grade, school, teacher, ...
     grade = models.PositiveIntegerField()
-
-
-class Teacher(Person):
-    """
-    Teacher
-    """
-    # Fields: school, ...
+    teacher = models.ForeignKey(Teacher)
+    school = models.ForeignKey(School)
