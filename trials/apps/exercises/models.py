@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 from trials.apps.people.models import Student
@@ -32,6 +34,7 @@ class Exercise(models.Model):
     description = models.TextField()
     trials = models.ManyToManyField(Trial)
     student = models.ForeignKey(Student)
+    datetime = models.DateTimeField(auto_now_add=True, default=datetime.now)
 
     def __unicode__(self):
         return unicode(self.name)
