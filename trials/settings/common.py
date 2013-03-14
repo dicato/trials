@@ -186,7 +186,7 @@ DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 
-    'trials.apps.exercise',
+    'trials.apps.exercises',
     'trials.apps.people',
     'trials.apps.schools',
 )
