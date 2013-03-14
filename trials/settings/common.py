@@ -185,6 +185,10 @@ DJANGO_APPS = (
     # Admin panel and documentation:
     'django.contrib.admin',
     'django.contrib.admindocs',
+
+    'trials.apps.exercise',
+    'trials.apps.people',
+    'trials.apps.schools',
 )
 
 THIRD_PARTY_APPS = (
