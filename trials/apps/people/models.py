@@ -20,7 +20,7 @@ class Teacher(Person):
     """
     # Fields: school, ...
     email = models.EmailField()
-    phone = models.CharField(max_length=7)
+    phone = models.CharField(max_length=10)
 
     # SHould their be a many to one field for students?
 

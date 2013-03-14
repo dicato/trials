@@ -1,5 +1,7 @@
 from django.db import models
 
+from trials.apps.people.models import Student
+
 
 class Trial(models.Model):
     """
@@ -7,6 +9,16 @@ class Trial(models.Model):
     """
     success = models.BooleanField()
     prompted = models.BooleanField()
+
+    def __unicode__(self):
+        if self.success and self.prompted:
+            return u'++'
+        elif self.success and not self.prompted:
+            return u'+-'
+        elif not self.success and self.prompted:
+            return u'-+'
+        else:
+            return u'--'
 
 
 class Exercise(models.Model):
@@ -19,3 +31,7 @@ class Exercise(models.Model):
     name = models.CharField(max_length=256)
     description = models.TextField()
     trials = models.ManyToManyField(Trial)
+    student = models.ForeignKey(Student)
+
+    def __unicode__(self):
+        return unicode(self.name)
