@@ -15,4 +15,10 @@ urlpatterns = patterns('',
     url(r'^$', 'apps.core.views.index'),
     url(r'^about$', 'apps.core.views.about'),
     url(r'^contact$', 'apps.core.views.contact'),
+
+    # Students
+    url(r'^students$', 'apps.people.views.students'),
+    url(r'^students/(?P<student_id>\w+)$',
+        'apps.people.views.student_detail'),
+
 )
