@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.conf.urls.defaults import patterns, include, url
 
+import trials.apps.people.views
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/admin/#hooking-adminsite-instances-into-your-urlconf
 admin.autodiscover()
@@ -17,8 +18,8 @@ urlpatterns = patterns('',
     url(r'^contact$', 'apps.core.views.contact'),
 
     # Students
-    url(r'^students$', 'apps.people.views.students'),
-    url(r'^students/(?P<student_id>\w+)$',
-        'apps.people.views.student_detail'),
-
+    url(r'^students$', trials.apps.people.views.Students.as_view(),
+        name='students'),
+    url(r'^students/(?P<pk>\w+)$',
+        trials.apps.people.views.Student.as_view(), name='student'),
 )

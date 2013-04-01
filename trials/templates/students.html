@@ -58,8 +58,8 @@
             </tr>
           </thead>
           <tbody>
-            {% if students %}
-            {% for s in students %}
+            {% if object_list %}
+            {% for s in object_list %}
             <tr>
               <td><a href="/students/{{ s.id }}">{{ s }}</a></td>
               <td>{{ s.school }}</td>
