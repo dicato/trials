@@ -25,11 +25,14 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>School</th>
-          <th>Grade</th>
         </tr>
       </thead>
       <tbody>
+        {% for e in student.exercise_set.all %}
+          <tr>
+            <td><a href="/exercises/{{ e.id }}">{{ e.name }}</a></td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   <p></p>
